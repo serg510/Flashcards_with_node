@@ -1,0 +1,21 @@
+//- doctype html
+//- html(lang="en")
+//-   head
+//-     title Flash Cards
+//-   body
+        header
+        h1 Flash Cards
+extends layout.pug
+
+block content
+    section#content
+        //- like a foreach loop to print out color list
+        //- ul
+        //-     each color in colors
+        //-         li=color
+        h2= prompt
+        if hint
+            p   
+                i Hint: #{hint}
+        //- else 
+        //-     p (There is no hint)
