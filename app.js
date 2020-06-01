@@ -16,7 +16,15 @@ app.use(cookieParser());
 //   ];
 
 app.set('view engine','pug');
-
+//bring in so app.js can use the routes that were created
+//./routes is fine because theirs an index.js 
+//else you would require the whole path
+const mainRoutes = require('./routes');
+const cardRoutes = require('./routes/cards');
+//use the routes variable to create middleware
+app.use(mainRoutes);
+//new routes for flashcards
+app.use('/cards',cardRoutes);
 //using middleware
 // app.use((req,res,next)=>{
 //     console.log("Hello");
@@ -27,49 +35,6 @@ app.set('view engine','pug');
 app.use((req,res,next)=>{
     console.log("World")
     next();
-});
-
-
-
-app.get('/',(req,res) => {
-    const name = req.cookies.username;
-    if(name){
-        res.render('index', { name });
-    }else{
-        res.redirect('/hello');
-    }
-});
-
-// app.get('/cards',(req,res) => {
-//     res.render('card', { prompt: "Who is buried in Grant's tomb?", hint: "Think about who's tomb it is."});
-// });
-// app.get('/cards',(req,res) => {
-//     res.render('card', { prompt: "Who is buried in Grant's tomb?", colors});
-// });
-app.get('/cards',(req,res) => {
-    res.render('card', { prompt: "Who is buried in Grant's tomb?"});
-});
-app.get('/hello',(req,res) => {
-    const name = req.cookies.username;
-    if(name){
-        res.redirect('/');
-    }else{
-        res.render('hello');
-        
-    }
-    
-});
-app.post('/hello',(req,res) => {
-    // console.dir(req.body)
-    //res.json(req.body);
-    res.cookie('username', req.body.username);
-    res.redirect('/');
-});
-
-//Route to delete cookie
-app.post('/goodbye',(req,res) => {
-    res.clearCookie('username');
-    res.redirect('/hello');
 });
 
 // middleware error function
