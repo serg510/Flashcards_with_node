@@ -32,10 +32,10 @@ app.use('/cards',cardRoutes);
 //     err.status = 500;
 //     next(err);
 // });
-app.use((req,res,next)=>{
-    console.log("World")
-    next();
-});
+// app.use((req,res,next)=>{
+//     console.log("World")
+//     next();
+// });
 
 // middleware error function
 

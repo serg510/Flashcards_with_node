@@ -17,5 +17,9 @@ block content
         if hint
             p   
                 i Hint: #{hint}
+        //- http://localhost:3000
+        //- /cards/1?side=question
+        //- **only the {id} and the {side} need to constantly change
+        a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay 
         //- else 
         //-     p (There is no hint)
