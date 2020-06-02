@@ -21,5 +21,7 @@ block content
         //- /cards/1?side=question
         //- **only the {id} and the {side} need to constantly change
         a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay 
+        br
+        a(href='/cards') Next Card
         //- else 
         //-     p (There is no hint)
