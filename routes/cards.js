@@ -15,7 +15,7 @@ router.get('/:id',(req,res) => {
     const { id } = req.params;
 // if Question is selected in url take to that ${card}
     if(!side){
-        res.redirect(`/cards/${id}?side=question`);
+      return  res.redirect(`/cards/${id}?side=question`);
     }
     const name = req.cookies.username;
     const text = cards[id][side];
