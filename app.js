@@ -5,6 +5,11 @@ const cookieParser = require('cookie-parser');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser());
+
+//adding static files
+//use route '/static' if you think it would conflict with other routes in your app
+//otherwise it will run from root
+app.use('/static',express.static('public'));
 // colors array to print out on card
 // const colors = [
 //     'red',
