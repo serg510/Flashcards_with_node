@@ -1,3 +1,27 @@
+extends app.pug 
+
+block card 
+    section(class=`flashcards`)
+        .card(class=`card-${side}`)
+            .card-header
+            h1.card-title= side
+            #content
+                h2= text
+                if hint
+                    i= hint
+            .card-flip-wrap
+                a(href=`${id}?side=${sideToShow}`)
+                    img.card-flip(src="/static/img/flip.svg")
+            .card-next
+                a(href="/cards")
+                    img(src="/static/img/next.svg")
+    script(src="/static/js/app.js")
+
+
+
+
+
+
 //- doctype html
 //- html(lang="en")
 //-   head
@@ -5,23 +29,23 @@
 //-   body
         header
         h1 Flash Cards
-extends layout.pug
+//- extends layout.pug
 
-block content
-    section#content
-        //- like a foreach loop to print out color list
-        //- ul
-        //-     each color in colors
-        //-         li=color
-        h2= text
-        if hint
-            p   
-                i Hint: #{hint}
-        //- http://localhost:3000
-        //- /cards/1?side=question
-        //- **only the {id} and the {side} need to constantly change
-        a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay 
-        br
-        a(href='/cards') Next Card
-        //- else 
-        //-     p (There is no hint)
+//- block content
+//-     section#content
+//-         //- like a foreach loop to print out color list
+//-         //- ul
+//-         //-     each color in colors
+//-         //-         li=color
+//-         h2= text
+//-         if hint
+//-             p   
+//-                 i Hint: #{hint}
+//-         //- http://localhost:3000
+//-         //- /cards/1?side=question
+//-         //- **only the {id} and the {side} need to constantly change
+//-         a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay 
+//-         br
+//-         a(href='/cards') Next Card
+//-         //- else 
+//-         //-     p (There is no hint)
