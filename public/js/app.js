@@ -11,7 +11,7 @@ button the user can click to reveal the hint
 const hint = document.querySelector('#content > i');
 //const showHint = document.querySelector('.card-flip')
 
-hint.style.display = 'none';
+//hint.style.display = 'none';
 
 const button = document.createElement('BUTTON');
 button.setAttribute('id','showHint');
