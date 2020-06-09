@@ -6,6 +6,11 @@ The challenge is to write some JavaScript
 to hide the hint by default and present a 
 button the user can click to reveal the hint
 */
+// div id="content">
+//   <h2>What is one way a website can store data in a user's browser?</h2>
+//   <button>Show hint</button>
+//   <p class="hint" style="display: none;"><i>They are delicious with milk</i></p>
+// </div>
 
 // [1] hide Hint
 const hint = document.querySelector('#content > i');
